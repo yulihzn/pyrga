@@ -147,25 +147,7 @@ export class GameBoard extends Component {
                 }
             }
         }
-        let isGameOver = false
-        if (vaild == 0) {
-            isGameOver = true
-        } else {
-            let manager = this.isRedTurn ? this.redPCM : this.bluePCM
-            let point = 0
-            if (rectCount > 0 && manager.rectCount > 0) {
-                point++
-            }
-            if (circleCount > 0 && manager.circleCount > 0) {
-                point++
-            }
-            if (arrowCount > 0 && manager.arrowCount > 0) {
-                point++
-            }
-            if (point == 0) {
-                isGameOver = true
-            }
-        }
+
         let redTower = 0
         let blueTower = 0
         let redSecond = 0
@@ -230,6 +212,28 @@ export class GameBoard extends Component {
                     msg = `和棋了!\n${turns}\n${towers}\n${seconds}\n${ones}}`
                 }
             }
+        }
+        let isGameOver = false
+        if (vaild == 0) {
+            isGameOver = true
+        } else {
+            let manager = this.isRedTurn ? this.redPCM : this.bluePCM
+            let point = 0
+            if (rectCount > 0 && manager.rectCount > 0) {
+                point++
+            }
+            if (circleCount > 0 && manager.circleCount > 0) {
+                point++
+            }
+            if (arrowCount > 0 && manager.arrowCount > 0) {
+                point++
+            }
+            if (point == 0) {
+                isGameOver = true
+            }
+        }
+        if (redTower > 2 || blueTower > 2) {
+            isGameOver = true
         }
         if (isGameOver) {
             this.hud.showGameOver(msg)
