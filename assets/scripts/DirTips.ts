@@ -1,5 +1,4 @@
 import { _decorator, Color, Component, EventTouch, Node, NodeEventType, Sprite, UITransform, Vec3 } from "cc"
-import { GameBoard } from "./GameBoard"
 const { ccclass, property } = _decorator
 
 @ccclass("DirTips")

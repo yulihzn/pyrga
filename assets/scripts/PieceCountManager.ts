@@ -32,7 +32,7 @@ export class PieceCountManager extends Component {
     private circlePieceCount: PieceCount
     private rectPieceCount: PieceCount
     protected onLoad(): void {
-        this.node.removeAllChildren()
+        this.layout.removeAllChildren()
         this.rectPieceCount = this.addPieceCount(PieceCount.TYPE.RECT, this.rectCount)
         this.circlePieceCount = this.addPieceCount(PieceCount.TYPE.CIRCLE, this.circleCount)
         this.arrowPieceCount = this.addPieceCount(PieceCount.TYPE.ARROW, this.arrowCount)
@@ -46,7 +46,7 @@ export class PieceCountManager extends Component {
         return pieceCount
     }
     turnShow() {
-        tween(this.node)
+        tween(this.layout)
             .to(0.2, { scale: new Vec3(0.75, 0.75, 1) })
             .to(0.2, { scale: new Vec3(0.5, 0.5, 1) })
             .start()
